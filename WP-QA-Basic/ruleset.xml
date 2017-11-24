@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<ruleset name="WP-QA-Basic">
+	<description>Basic Code Quality checks for WordPress plugins and themes.</description>
+
+	<!-- Autoload the autoloaders of the dependencies. -->
+	<autoload>./../autoload-bootstrap.php</autoload>
+
+	<!-- Only check PHP files. -->
+	<arg name="extensions" value="php"/>
+
+	<!-- Treat all files as UTF-8. -->
+	<config name="encoding" value="utf-8"/>
+
+	<!-- Strip the filepaths down to the relevant bit. -->
+	<arg name="basepath" value="."/>
+
+	<!-- Show progress. -->
+	<arg value="p"/>
+
+	<!-- Check 20 files simultanously. -->
+	<!--<arg name="parallel" value="5"/>-->
+
+	<!-- Exclude dependencies from being scanned. -->
+	<exclude-pattern type="relative">*/node_modules/*</exclude-pattern>
+	<exclude-pattern type="relative">^vendor/*</exclude-pattern>
+
+	<!-- Exclude system directories. -->
+	<exclude-pattern type="relative">^\.git/*</exclude-pattern>
+
+
+	<!--
+	##### Generic checks. ####
+	-->
+
+	<!-- Check for PHP Parse errors. -->
+	<rule ref="Generic.PHP.Syntax"/>
+
+	<!-- Check for file encoding problems. -->
+	<rule ref="Generic.Files.ByteOrderMark"/>
+
+
+	<!--
+	##### Dangerous code. ####
+	-->
+
+	<!-- Use of eval(). -->
+	<rule ref="Squiz.PHP.Eval"/>
+	<rule ref="Squiz.PHP.Eval.Discouraged">
+		<type>error</type>
+		<message>eval() is a security risk.</message>
+	</rule>
+
+	<!-- PCRE /e regex modifier. -->
+	<rule ref="PHPCompatibility.PHP.PregReplaceEModifier"/>
+
+	<!-- Use of the backtick operator (execution of shell commands). -->
+	<rule ref="Generic.PHP.BacktickOperator"/>
+
+
+	<!--
+	##### Untestable code. ####
+	-->
+
+	<rule ref="Generic.Metrics.CyclomaticComplexity"/>
+	<rule ref="Generic.Metrics.NestingLevel"/>
+
+
+	<!--
+	##### Outdated code. ####
+	-->
+
+	<!-- Use of PHP 4 style code. -->
+	<rule ref="Generic.Functions.CallTimePassByReference"/>
+	<rule ref="Generic.PHP.DisallowShortOpenTag"/>
+	<rule ref="Generic.PHP.DisallowAlternativePHPTags"/>
+
+	<!-- Use of outdated functions. -->
+	<rule ref="Generic.PHP.ForbiddenFunctions">
+		<properties>
+			<property name="error" value="false"/>
+		</properties>
+	</rule>
+
+	<!-- Use of outdated functions. Overlaps with PHPCompatibility. -->
+	<rule ref="WordPress.PHP.RestrictedPHPFunctions"/>
+	<rule ref="WordPress.PHP.POSIXFunctions"/>
+	<rule ref="Generic.PHP.DeprecatedFunctions"/>
+
+
+	<!--
+	##### Messy code. ####
+	-->
+	<rule ref="WordPress.Functions.DontExtract">
+		<type>warning</type>
+	</rule>
+	<rule ref="WordPress.CodeAnalysis.AssignmentInCondition">
+		<exclude name="WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition"/>
+	</rule>
+	<rule ref="Generic.Classes.DuplicateClassName"/>
+	<rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+	<rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
+	<rule ref="WordPress.PHP.DiscourageGoto"/>
+	<rule ref="Squiz.Scope.StaticThisUsage"/>
+
+
+	<!--
+	##### Incompatible code - PHP. ####
+	-->
+
+	<rule ref="PHPCompatibility">
+		<!-- Whitelist PHP native classes, interfaces, functions and constants which
+			 are back-filled by WP.
+
+			 Based on:
+			 * /wp-includes/compat.php
+			 * /wp-includes/random_compat/random.php
+		-->
+		<exclude name="PHPCompatibility.PHP.NewClasses.errorFound"/>
+		<exclude name="PHPCompatibility.PHP.NewClasses.typeerrorFound"/>
+
+		<!-- Sniff is not yet in a released version, will be in 8.1.0.
+		<exclude name="PHPCompatibility.PHP.NewConstants.json_pretty_printFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.php_version_idFound"/>
+		-->
+
+		<exclude name="PHPCompatibility.PHP.NewFunctions.hash_equalsFound"/>
+		<exclude name="PHPCompatibility.PHP.NewFunctions.json_last_error_msgFound"/>
+		<exclude name="PHPCompatibility.PHP.NewFunctions.random_intFound"/>
+		<exclude name="PHPCompatibility.PHP.NewFunctions.random_bytesFound"/>
+		<exclude name="PHPCompatibility.PHP.NewFunctions.array_replace_recursiveFound"/>
+
+		<exclude name="PHPCompatibility.PHP.NewInterfaces.jsonserializableFound"/>
+	</rule>
+
+	<!-- Whitelist the WP Core mysql_to_rfc3339() function. -->
+	<rule ref="PHPCompatibility.PHP.RemovedExtensions">
+		<properties>
+			<property name="functionWhitelist" type="array" value="mysql_to_rfc3339"/>
+		</properties>
+	</rule>
+
+
+	<!--
+	##### Incompatible code - WP. ####
+	-->
+
+	<rule ref="WordPress.WP.DeprecatedFunctions"/>
+	<rule ref="WordPress.WP.DeprecatedClasses"/>
+	<rule ref="WordPress.WP.DeprecatedParameters"/>
+
+
+	<!--
+	##### Conflicting code. ####
+	-->
+
+	<!-- Overwriting WP global variables. -->
+	<rule ref="WordPress.Variables.GlobalVariables"/>
+
+	<!-- Scripts & style should be enqueued. -->
+	<rule ref="WordPress.WP.EnqueuedResources"/>
+
+	<!-- Verify that everything in the global namespace is prefixed. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals"/>
+
+</ruleset>

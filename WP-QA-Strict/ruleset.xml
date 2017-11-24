@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<ruleset name="WP-QA-Strict">
+	<description>Stricter Code Quality checks for WordPress plugins and themes.</description>
+
+	<!-- Autoload the autoloaders of the dependencies. -->
+	<autoload>./../autoload-bootstrap.php</autoload>
+
+	<rule ref="WP-QA-Basic"/>
+
+
+	<!--
+	##### Potentially insecure code. ####
+	-->
+
+	<!-- Prepare all SQL queries. -->
+	<rule ref="WordPress.WP.PreparedSQL">
+		<type>warning</type>
+	</rule>
+
+	<!-- Escape all non-hard-coded output. -->
+	<rule ref="WordPress.XSS.EscapeOutput">
+		<type>warning</type>
+	</rule>
+
+	<!-- Verify that a nonce check is done before using values in superglobals. -->
+	<rule ref="WordPress.CSRF.NonceVerification">
+		<type>warning</type>
+	</rule>
+
+	<!-- Superglobal input not validated or sanitized. -->
+	<rule ref="WordPress.VIP.ValidatedSanitizedInput">
+		<type>warning</type>
+	</rule>
+
+
+	<!--
+	##### Untranslatable code. ####
+	-->
+
+	<!-- Check for correct usage of the WP i18n functions. -->
+	<rule ref="WordPress.WP.I18n">
+		<exclude name="WordPress.WP.I18n.SuperfluousDefaultTextDomain"/>
+		<exclude name="WordPress.WP.I18n.UnorderedPlaceholdersText"/>
+		<exclude name="WordPress.WP.I18n.UnorderedPlaceholdersPlural"/>
+		<exclude name="WordPress.WP.I18n.UnorderedPlaceholdersSingle"/>
+		<exclude name="WordPress.WP.I18n.MixedOrderedPlaceholdersText"/>
+		<exclude name="WordPress.WP.I18n.MixedOrderedPlaceholdersPlural"/>
+		<exclude name="WordPress.WP.I18n.MixedOrderedPlaceholdersSingle"/>
+	</rule>
+	<rule ref="WordPress.WP.I18n.MissingTranslatorsComment">
+		<type>warning</type>
+	</rule>
+	<rule ref="WordPress.WP.I18n.TranslatorsCommentWrongStyle">
+		<type>warning</type>
+	</rule>
+
+
+	<!--
+	##### Outdated code. ####
+	-->
+
+	<!-- Use of PHP 4 style code. -->
+	<rule ref="Squiz.Scope.MethodScope">
+		<type>warning</type>
+	</rule>
+	<rule ref="Squiz.Scope.MemberVarScope">
+		<type>warning</type>
+	</rule>
+
+
+	<!--
+	##### Potentially buggy code. ####
+	-->
+	<!-- Encourage the use of strict ( === and !== ) comparisons. -->
+	<rule ref="WordPress.PHP.StrictComparisons"/>
+
+	<!-- Check that in_array() and array_search() use strict comparisons. -->
+	<rule ref="WordPress.PHP.StrictInArray"/>
+
+	<rule ref="WordPress.DB.PreparedSQLPlaceholders"/>
+
+
+	<!--
+	##### Sloppy code. ####
+	-->
+	<rule ref="WordPress.CodeAnalysis.EmptyStatement"/>
+	<rule ref="Generic.CodeAnalysis.EmptyStatement">
+		<type>warning</type>
+	</rule>
+	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+	<rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops">
+		<type>warning</type>
+	</rule>
+	<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+
+
+	<!--
+	##### Discouraged type of code. ####
+	-->
+	<!-- Avoid touching the database directly. -->
+	<rule ref="WordPress.DB.RestrictedFunctions"/>
+	<rule ref="WordPress.DB.RestrictedClasses"/>
+
+	<rule ref="WordPress.PHP.DevelopmentFunctions"/>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions"/>
+	<rule ref="WordPress.WP.AlternativeFunctions"/>
+	<rule ref="WordPress.WP.DiscouragedConstants"/>
+	<rule ref="WordPress.WP.DiscouragedFunctions"/>
+
+	<!-- Global functions instead of OO. -->
+	<rule ref="Squiz.Functions.GlobalFunction"/>
+
+</ruleset>
