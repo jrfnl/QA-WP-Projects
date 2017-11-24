@@ -1,0 +1,23 @@
+sudo: false
+
+dist: trusty
+
+cache:
+    apt: true
+
+addons:
+    apt:
+        packages:
+            - libxml2-utils
+
+before_install:
+    - export XMLLINT_INDENT="	"
+
+script:
+    # Validate the xml files.
+    # @link http://xmlsoft.org/xmllint.html
+    - xmllint --noout ./WP-QA-Basic/ruleset.xml
+    - xmllint --noout ./WP-QA-Strict/ruleset.xml
+    # Check the code-style consistency of the xml files.
+    - diff -B ./WP-QA-Basic/ruleset.xml <(xmllint --format "./WP-QA-Basic/ruleset.xml")
+    - diff -B ./WP-QA-Strict/ruleset.xml <(xmllint --format "./WP-QA-Strict/ruleset.xml")
