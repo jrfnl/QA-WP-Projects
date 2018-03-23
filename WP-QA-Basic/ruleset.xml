@@ -11,18 +11,14 @@
 	<!-- Treat all files as UTF-8. -->
 	<config name="encoding" value="utf-8"/>
 
-	<!-- Strip the filepaths down to the relevant bit. -->
-	<arg name="basepath" value="."/>
-
 	<!-- Show progress. -->
 	<arg value="p"/>
 
 	<!-- Check 20 files simultanously. -->
 	<!--<arg name="parallel" value="5"/>-->
 
-	<!-- Exclude dependencies from being scanned. -->
+	<!-- Exclude Node. -->
 	<exclude-pattern type="relative">*/node_modules/*</exclude-pattern>
-	<exclude-pattern type="relative">^vendor/*</exclude-pattern>
 
 	<!-- Exclude system directories. -->
 	<exclude-pattern type="relative">^\.git/*</exclude-pattern>
@@ -99,7 +95,7 @@
 	<rule ref="Generic.Classes.DuplicateClassName"/>
 	<rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
 	<rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
-	<rule ref="WordPress.PHP.DiscourageGoto"/>
+	<rule ref="Generic.PHP.DiscourageGoto"/>
 	<rule ref="Squiz.Scope.StaticThisUsage"/>
 
 
