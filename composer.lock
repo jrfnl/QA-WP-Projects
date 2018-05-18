@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0321d58f33ce1aab63b908c986e62ec",
+    "content-hash": "bd22195b6d636aca5c3e22781e93e7af",
     "packages": [
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
@@ -76,16 +76,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "dev-feature/1942-load-custom-report-based-on-FQN",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jrfnl/PHP_CodeSniffer.git",
-                "reference": "4233886480aaa43e2b9eb1675b7203ec5b542354"
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "bbdaac852406ebbbd5a772e16a97fa69a4df6cfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jrfnl/PHP_CodeSniffer/zipball/4233886480aaa43e2b9eb1675b7203ec5b542354",
-                "reference": "4233886480aaa43e2b9eb1675b7203ec5b542354",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/bbdaac852406ebbbd5a772e16a97fa69a4df6cfe",
+                "reference": "bbdaac852406ebbbd5a772e16a97fa69a4df6cfe",
                 "shasum": ""
             },
             "require": {
@@ -107,6 +107,7 @@
                     "dev-master": "3.x-dev"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -122,12 +123,7 @@
                 "phpcs",
                 "standards"
             ],
-            "support": {
-                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
-                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki",
-                "source": "https://github.com/squizlabs/PHP_CodeSniffer"
-            },
-            "time": "2018-03-21T02:38:23+00:00"
+            "time": "2018-05-18T05:14:40+00:00"
         },
         {
             "name": "wimg/php-compatibility",
@@ -135,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wimg/PHPCompatibility.git",
-                "reference": "129afa00eb391c550094ff044a5e0d65788903ff"
+                "reference": "b100a1ea9099c6f8f0599342035f5e0e07aee15e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wimg/PHPCompatibility/zipball/129afa00eb391c550094ff044a5e0d65788903ff",
-                "reference": "129afa00eb391c550094ff044a5e0d65788903ff",
+                "url": "https://api.github.com/repos/wimg/PHPCompatibility/zipball/b100a1ea9099c6f8f0599342035f5e0e07aee15e",
+                "reference": "b100a1ea9099c6f8f0599342035f5e0e07aee15e",
                 "shasum": ""
             },
             "require": {
@@ -180,7 +176,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-03-23T10:21:09+00:00"
+            "time": "2018-04-24T22:20:19+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
@@ -224,15 +220,8 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [
-        {
-            "alias": "3.3.0-dev",
-            "alias_normalized": "3.3.0.0-dev",
-            "version": "dev-feature/1942-load-custom-report-based-on-FQN",
-            "package": "squizlabs/php_codesniffer"
-        }
-    ],
-    "minimum-stability": "dev",
+    "aliases": [],
+    "minimum-stability": "RC",
     "stability-flags": {
         "squizlabs/php_codesniffer": 20,
         "wimg/php-compatibility": 20
