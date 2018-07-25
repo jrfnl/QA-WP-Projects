@@ -19,9 +19,6 @@ if ( file_exists( __DIR__ . '/vendor/wp-coding-standards/wpcs/WordPress/PHPCSAli
  * Register an autoloader to be able to load the custom report based
  * on a Fully Qualified (Class)Name.
  *
- * This depends on PR #1948 in the PHPCS repo being merged.
- * @link https://github.com/squizlabs/PHP_CodeSniffer/pull/1948
- *
  * @param string $class Class being requested.
  */
 spl_autoload_register( function ( $class ) {
