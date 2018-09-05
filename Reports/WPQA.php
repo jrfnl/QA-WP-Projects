@@ -70,6 +70,7 @@ class WPQA implements Report {
 		'WordPress.WP.DeprecatedFunctions'             => 'incompatible code - WP',
 		'WordPress.WP.DeprecatedClasses'               => 'incompatible code - WP',
 		'WordPress.WP.DeprecatedParameters'            => 'incompatible code - WP',
+		'WordPress.WP.DeprecatedParameterValues'       => 'incompatible code - WP',
 
 		'WordPress.WP.GlobalVariablesOverrride'        => 'potentially conflicting code',
 		'WordPress.WP.EnqueuedResources'               => 'potentially conflicting code',
@@ -90,6 +91,8 @@ class WPQA implements Report {
 		'WordPress.Security.EscapeOutput'                  => 'potentially insecure code',
 		'WordPress.Security.NonceVerification'             => 'potentially insecure code',
 		'WordPress.Security.ValidatedSanitizedInput'       => 'potentially insecure code',
+		'WordPress.Security.PluginMenuSlug'                => 'potentially insecure code',
+		'WordPress.Security.SafeRedirect'                  => 'potentially insecure code',
 
 		'WordPress.WP.I18n'                                => 'localization issues',
 
@@ -99,6 +102,7 @@ class WPQA implements Report {
 		'WordPress.PHP.StrictComparisons'                  => 'potentially buggy code',
 		'WordPress.PHP.StrictInArray'                      => 'potentially buggy code',
 		'WordPress.DB.PreparedSQLPlaceholders'             => 'potentially buggy code',
+		'WordPress.PHP.PregQuoteDelimiter'                 => 'potentially buggy code',
 
 		'WordPress.CodeAnalysis.EmptyStatement'            => 'sloppy code',
 		'Generic.CodeAnalysis.EmptyStatement'              => 'sloppy code',

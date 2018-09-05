@@ -32,6 +32,12 @@
 		<type>warning</type>
 	</rule>
 
+	<!-- Path disclosure risk. -->
+	<rule ref="WordPress.Security.PluginMenuSlug"/>
+
+	<!-- Potential open redirect vulnerability. -->
+	<rule ref="WordPress.Security.SafeRedirect"/>
+
 
 	<!--
 	##### Untranslatable code. ####
@@ -78,6 +84,8 @@
 	<rule ref="WordPress.PHP.StrictInArray"/>
 
 	<rule ref="WordPress.DB.PreparedSQLPlaceholders"/>
+
+	<rule ref="WordPress.PHP.PregQuoteDelimiter"/>
 
 
 	<!--
