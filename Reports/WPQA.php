@@ -57,7 +57,7 @@ class WPQA implements Report {
 		'WordPress.PHP.POSIXFunctions'                 => 'outdated code',
 		'Generic.PHP.DeprecatedFunctions'              => 'outdated code',
 
-		'WordPress.Functions.DontExtract'              => 'messy code',
+		'WordPress.PHP.DontExtract'                    => 'messy code',
 		'WordPress.CodeAnalysis.AssignmentInCondition' => 'messy code',
 		'Generic.Classes.DuplicateClassName'           => 'messy code',
 		'Generic.CodeAnalysis.JumbledIncrementer'      => 'messy code',
@@ -71,7 +71,7 @@ class WPQA implements Report {
 		'WordPress.WP.DeprecatedClasses'               => 'incompatible code - WP',
 		'WordPress.WP.DeprecatedParameters'            => 'incompatible code - WP',
 
-		'WordPress.Variables.GlobalVariables'          => 'potentially conflicting code',
+		'WordPress.WP.GlobalVariablesOverrride'        => 'potentially conflicting code',
 		'WordPress.WP.EnqueuedResources'               => 'potentially conflicting code',
 		'WordPress.NamingConventions.PrefixAllGlobals' => 'potentially conflicting code',
 	);
@@ -86,10 +86,10 @@ class WPQA implements Report {
 	 * @var array
 	 */
 	protected $categorization_strict = array(
-		'WordPress.WP.PreparedSQL'                         => 'potentially insecure code',
-		'WordPress.XSS.EscapeOutput'                       => 'potentially insecure code',
-		'WordPress.CSRF.NonceVerification'                 => 'potentially insecure code',
-		'WordPress.VIP.ValidatedSanitizedInput'            => 'potentially insecure code',
+		'WordPress.DB.PreparedSQL'                         => 'potentially insecure code',
+		'WordPress.Security.EscapeOutput'                  => 'potentially insecure code',
+		'WordPress.Security.NonceVerification'             => 'potentially insecure code',
+		'WordPress.Security.ValidatedSanitizedInput'       => 'potentially insecure code',
 
 		'WordPress.WP.I18n'                                => 'localization issues',
 

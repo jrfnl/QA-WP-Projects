@@ -13,22 +13,22 @@
 	-->
 
 	<!-- Prepare all SQL queries. -->
-	<rule ref="WordPress.WP.PreparedSQL">
+	<rule ref="WordPress.DB.PreparedSQL">
 		<type>warning</type>
 	</rule>
 
 	<!-- Escape all non-hard-coded output. -->
-	<rule ref="WordPress.XSS.EscapeOutput">
+	<rule ref="WordPress.Security.EscapeOutput">
 		<type>warning</type>
 	</rule>
 
 	<!-- Verify that a nonce check is done before using values in superglobals. -->
-	<rule ref="WordPress.CSRF.NonceVerification">
+	<rule ref="WordPress.Security.NonceVerification">
 		<type>warning</type>
 	</rule>
 
 	<!-- Superglobal input not validated or sanitized. -->
-	<rule ref="WordPress.VIP.ValidatedSanitizedInput">
+	<rule ref="WordPress.Security.ValidatedSanitizedInput">
 		<type>warning</type>
 	</rule>
 
