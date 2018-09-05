@@ -7,8 +7,8 @@
  * @author   Juliette Reinders Folmer <qa_wp_projects_nospam@adviesenzo.nl>
  */
 
-if ( file_exists( __DIR__ . '/vendor/wimg/php-compatibility/PHPCSAliases.php' ) ) {
-	require_once __DIR__ . '/vendor/wimg/php-compatibility/PHPCSAliases.php';
+if ( file_exists( __DIR__ . '/vendor/phpcompatibility/php-compatibility/PHPCSAliases.php' ) ) {
+	require_once __DIR__ . '/vendor/phpcompatibility/php-compatibility/PHPCSAliases.php';
 }
 
 if ( file_exists( __DIR__ . '/vendor/wp-coding-standards/wpcs/WordPress/PHPCSAliases.php' ) ) {
@@ -18,9 +18,6 @@ if ( file_exists( __DIR__ . '/vendor/wp-coding-standards/wpcs/WordPress/PHPCSAli
 /**
  * Register an autoloader to be able to load the custom report based
  * on a Fully Qualified (Class)Name.
- *
- * This depends on PR #1948 in the PHPCS repo being merged.
- * @link https://github.com/squizlabs/PHP_CodeSniffer/pull/1948
  *
  * @param string $class Class being requested.
  */
