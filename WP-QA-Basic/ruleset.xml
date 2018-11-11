@@ -50,7 +50,7 @@
 	</rule>
 
 	<!-- PCRE /e regex modifier. -->
-	<rule ref="PHPCompatibility.PHP.PregReplaceEModifier"/>
+	<rule ref="PHPCompatibility.ParameterValues.RemovedPCREModifiers"/>
 
 	<!-- Use of the backtick operator (execution of shell commands). -->
 	<rule ref="Generic.PHP.BacktickOperator"/>
