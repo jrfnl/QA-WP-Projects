@@ -87,6 +87,8 @@
 
 	<rule ref="WordPress.PHP.PregQuoteDelimiter"/>
 
+	<rule ref="WordPress.PHP.NoSilencedErrors"/>
+
 
 	<!--
 	##### Sloppy code. ####

@@ -3,7 +3,7 @@
  * WPQA Report for PHP_CodeSniffer.
  *
  * @package WPQA
- * @author  Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @author  Juliette Reinders Folmer <qawp_projects_nospam@adviesenzo.nl>
  */
 
 namespace WPQA;
@@ -39,42 +39,42 @@ class WPQA implements Report {
 	 * @var array
 	 */
 	protected $categorization_basic = array(
-		'Generic.PHP.Syntax'                           => 'hard errors',
-		'Generic.Files.ByteOrderMark'                  => 'hard errors',
+		'Generic.PHP.Syntax'                                    => 'hard errors',
+		'Generic.Files.ByteOrderMark'                           => 'hard errors',
 
-		'Squiz.PHP.Eval'                               => 'dangerous code',
-		'PHPCompatibility.PHP.PregReplaceEModifier'    => 'dangerous code',
-		'Generic.PHP.BacktickOperator'                 => 'dangerous code',
+		'Squiz.PHP.Eval'                                        => 'dangerous code',
+		'PHPCompatibility.ParameterValues.RemovedPCREModifiers' => 'dangerous code',
+		'Generic.PHP.BacktickOperator'                          => 'dangerous code',
 
-		'Generic.Metrics.CyclomaticComplexity'         => 'untestable code',
-		'Generic.Metrics.NestingLevel'                 => 'untestable code',
+		'Generic.Metrics.CyclomaticComplexity'                  => 'untestable code',
+		'Generic.Metrics.NestingLevel'                          => 'untestable code',
 
-		'Generic.Functions.CallTimePassByReference'    => 'outdated code',
-		'Generic.PHP.DisallowShortOpenTag'             => 'outdated code',
-		'Generic.PHP.DisallowAlternativePHPTags'       => 'outdated code',
-		'Generic.PHP.ForbiddenFunctions'               => 'outdated code',
-		'WordPress.PHP.RestrictedPHPFunctions'         => 'outdated code',
-		'WordPress.PHP.POSIXFunctions'                 => 'outdated code',
-		'Generic.PHP.DeprecatedFunctions'              => 'outdated code',
+		'Generic.Functions.CallTimePassByReference'             => 'outdated code',
+		'Generic.PHP.DisallowShortOpenTag'                      => 'outdated code',
+		'Generic.PHP.DisallowAlternativePHPTags'                => 'outdated code',
+		'Generic.PHP.ForbiddenFunctions'                        => 'outdated code',
+		'WordPress.PHP.RestrictedPHPFunctions'                  => 'outdated code',
+		'WordPress.PHP.POSIXFunctions'                          => 'outdated code',
+		'Generic.PHP.DeprecatedFunctions'                       => 'outdated code',
 
-		'WordPress.PHP.DontExtract'                    => 'messy code',
-		'WordPress.CodeAnalysis.AssignmentInCondition' => 'messy code',
-		'Generic.Classes.DuplicateClassName'           => 'messy code',
-		'Generic.CodeAnalysis.JumbledIncrementer'      => 'messy code',
-		'Squiz.Functions.FunctionDuplicateArgument'    => 'messy code',
-		'Generic.PHP.DiscourageGoto'                   => 'messy code',
-		'Squiz.Scope.StaticThisUsage'                  => 'messy code',
+		'WordPress.PHP.DontExtract'                             => 'messy code',
+		'WordPress.CodeAnalysis.AssignmentInCondition'          => 'messy code',
+		'Generic.Classes.DuplicateClassName'                    => 'messy code',
+		'Generic.CodeAnalysis.JumbledIncrementer'               => 'messy code',
+		'Squiz.Functions.FunctionDuplicateArgument'             => 'messy code',
+		'Generic.PHP.DiscourageGoto'                            => 'messy code',
+		'Squiz.Scope.StaticThisUsage'                           => 'messy code',
 
-		'PHPCompatibility'                             => 'incompatible code - PHP',
+		'PHPCompatibility'                                      => 'incompatible code - PHP',
 
-		'WordPress.WP.DeprecatedFunctions'             => 'incompatible code - WP',
-		'WordPress.WP.DeprecatedClasses'               => 'incompatible code - WP',
-		'WordPress.WP.DeprecatedParameters'            => 'incompatible code - WP',
-		'WordPress.WP.DeprecatedParameterValues'       => 'incompatible code - WP',
+		'WordPress.WP.DeprecatedFunctions'                      => 'incompatible code - WP',
+		'WordPress.WP.DeprecatedClasses'                        => 'incompatible code - WP',
+		'WordPress.WP.DeprecatedParameters'                     => 'incompatible code - WP',
+		'WordPress.WP.DeprecatedParameterValues'                => 'incompatible code - WP',
 
-		'WordPress.WP.GlobalVariablesOverrride'        => 'potentially conflicting code',
-		'WordPress.WP.EnqueuedResources'               => 'potentially conflicting code',
-		'WordPress.NamingConventions.PrefixAllGlobals' => 'potentially conflicting code',
+		'WordPress.WP.GlobalVariablesOverrride'                 => 'potentially conflicting code',
+		'WordPress.WP.EnqueuedResources'                        => 'potentially conflicting code',
+		'WordPress.NamingConventions.PrefixAllGlobals'          => 'potentially conflicting code',
 	);
 
 	/**
@@ -103,6 +103,7 @@ class WPQA implements Report {
 		'WordPress.PHP.StrictInArray'                      => 'potentially buggy code',
 		'WordPress.DB.PreparedSQLPlaceholders'             => 'potentially buggy code',
 		'WordPress.PHP.PregQuoteDelimiter'                 => 'potentially buggy code',
+		'WordPress.PHP.NoSilencedErrors'                   => 'potentially buggy code',
 
 		'WordPress.CodeAnalysis.EmptyStatement'            => 'sloppy code',
 		'Generic.CodeAnalysis.EmptyStatement'              => 'sloppy code',
