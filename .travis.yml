@@ -2,6 +2,8 @@ sudo: false
 
 dist: trusty
 
+language: php
+
 cache:
     apt: true
 
@@ -14,10 +16,14 @@ before_install:
     - export XMLLINT_INDENT="	"
 
 script:
+    # Make sure all packages used are valid.
+    - composer install
+    # Validate the composer.json file.
+    - composer validate --strict
     # Validate the xml files.
     # @link http://xmlsoft.org/xmllint.html
-    - xmllint --noout ./WP-QA-Basic/ruleset.xml
-    - xmllint --noout ./WP-QA-Strict/ruleset.xml
+    - xmllint --noout --schema ./vendor/squizlabs/php_codesniffer/phpcs.xsd ./WP-QA-Basic/ruleset.xml
+    - xmllint --noout --schema ./vendor/squizlabs/php_codesniffer/phpcs.xsd ./WP-QA-Strict/ruleset.xml
     # Check the code-style consistency of the xml files.
     - diff -B ./WP-QA-Basic/ruleset.xml <(xmllint --format "./WP-QA-Basic/ruleset.xml")
     - diff -B ./WP-QA-Strict/ruleset.xml <(xmllint --format "./WP-QA-Strict/ruleset.xml")
