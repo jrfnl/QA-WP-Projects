@@ -34,8 +34,6 @@ class WPQA implements Report {
 	 *
 	 * {@internal Any time, the WP-QA-Basic ruleset is updated, this table needs updating too!}}
 	 *
-	 * @todo Update the ruleset + this table for WPCS 1.0.0 once it comes out.
-	 *
 	 * @var array
 	 */
 	protected $categorization_basic = array(
@@ -81,8 +79,6 @@ class WPQA implements Report {
 	 * Categorization of the sniffs in the WP QA Strict ruleset.
 	 *
 	 * {@internal Any time, the WP-QA-Strict ruleset is updated, this table needs updating too!}}
-	 *
-	 * @todo Update the ruleset + this table for WPCS 1.0.0 once it comes out.
 	 *
 	 * @var array
 	 */
