@@ -162,7 +162,6 @@ class WPQA implements Report {
 	 */
 	protected $report_width = 80;
 
-
 	/**
 	 * Generate a partial report for a single processed file.
 	 *
@@ -172,15 +171,14 @@ class WPQA implements Report {
 	 *
 	 * @param array                 $report      Prepared report data.
 	 * @param \PHP_CodeSniffer\File $phpcsFile   The file being reported on.
-	 * @param bool                  $showSources Show sources?
-	 * @param int                   $width       Maximum allowed line width.
+	 * @param bool                  $showSources Show sources? Defaults to false.
+	 * @param int                   $width       Maximum allowed line width. Defaults to 80.
 	 *
 	 * @throws DeepExitException When this report is not used with one of the QA rulesets.
 	 *
 	 * @return bool
 	 */
 	public function generateFileReport( $report, File $phpcsFile, $showSources = false, $width = 80 ) {
-
 		/*
 		 * Set the $categorization property if needed.
 		 */
@@ -301,9 +299,7 @@ class WPQA implements Report {
 		}
 
 		return true;
-
 	}
-
 
 	/**
 	 * Generates a summary of errors and warnings for each file processed.
@@ -314,10 +310,10 @@ class WPQA implements Report {
 	 * @param int    $totalErrors   Total number of errors found during the run.
 	 * @param int    $totalWarnings Total number of warnings found during the run.
 	 * @param int    $totalFixable  Total number of problems that can be fixed.
-	 * @param bool   $showSources   Show sources?
+	 * @param bool   $showSources   Show sources? Defaults to false.
 	 * @param int    $width         Maximum allowed line width.
-	 * @param bool   $interactive   Are we running in interactive mode?
-	 * @param bool   $toScreen      Is the report being printed to screen?
+	 * @param bool   $interactive   Are we running in interactive mode? Defaults to false.
+	 * @param bool   $toScreen      Is the report being printed to screen? Defaults to true.
 	 *
 	 * @return void
 	 */
@@ -371,7 +367,6 @@ class WPQA implements Report {
 			}
 		}
 
-
 		/*
 		 * Output the report header.
 		 */
@@ -386,7 +381,6 @@ class WPQA implements Report {
 		$this->echo_line( str_repeat( '-', $this->report_width ) );
 
 		echo PHP_EOL . PHP_EOL;
-
 
 		/*
 		 * Output the file stats.
@@ -438,7 +432,6 @@ class WPQA implements Report {
 			$totals['Files']        += $stats['Files'];
 		}
 
-
 		$this->echo_line( str_repeat( '=', 78 ) );
 
 		$realTotalLOC            = ( $totals['TotalLines'] - $totals['BlankLines'] );
@@ -473,7 +466,6 @@ class WPQA implements Report {
 			$this->echo_line( '  You may want to try and find the theme/plugin on GitHub and check if there is a "test(s)" directory in the GH repository.', 2, "\033[3m" );
 		}
 		echo PHP_EOL . PHP_EOL;
-
 
 		/*
 		 * Output the findings.
@@ -571,7 +563,6 @@ class WPQA implements Report {
 		$this->echo_line( '* To see the details of all identified issues, run the report with "--report-full" added to the command.', 2, "\033[3m" );
 		$this->echo_line( str_repeat( '-', $this->report_width ) );
 
-
 		/*
 		 * Show a notice if very few problems are found...
 		 */
@@ -592,7 +583,6 @@ class WPQA implements Report {
 			Util\Timing::printRunTime();
 		}
 	}
-
 
 	/**
 	 * Print text to screen.
@@ -627,5 +617,4 @@ class WPQA implements Report {
 			echo $style, $line, "\033[0m", PHP_EOL;
 		}
 	}
-
-}//end class
+}
