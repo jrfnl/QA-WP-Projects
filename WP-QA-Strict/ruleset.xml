@@ -60,6 +60,7 @@
 		<type>warning</type>
 	</rule>
 
+	<rule ref="WordPress.CodeAnalysis.EscapedNotTranslated"/>
 
 	<!--
 	##### Outdated code. ####
@@ -72,6 +73,8 @@
 	<rule ref="Squiz.Scope.MemberVarScope">
 		<type>warning</type>
 	</rule>
+
+	<rule ref="WordPress.PHP.TypeCasts"/>
 
 
 	<!--
@@ -88,6 +91,8 @@
 	<rule ref="WordPress.PHP.PregQuoteDelimiter"/>
 
 	<rule ref="WordPress.PHP.NoSilencedErrors"/>
+
+	<rule ref="WordPress.NamingConventions.ValidPostTypeSlug"/>
 
 
 	<!--

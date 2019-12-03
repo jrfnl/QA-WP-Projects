@@ -73,6 +73,7 @@ class WPQA implements Report {
 		'WordPress.WP.GlobalVariablesOverrride'                 => 'potentially conflicting code',
 		'WordPress.WP.EnqueuedResources'                        => 'potentially conflicting code',
 		'WordPress.NamingConventions.PrefixAllGlobals'          => 'potentially conflicting code',
+		'WordPress.PHP.IniSet'                                  => 'potentially conflicting code',
 	);
 
 	/**
@@ -91,15 +92,18 @@ class WPQA implements Report {
 		'WordPress.Security.SafeRedirect'                  => 'potentially insecure code',
 
 		'WordPress.WP.I18n'                                => 'localization issues',
+		'WordPress.CodeAnalysis.EscapedNotTranslated'      => 'localization issues',
 
 		'Squiz.Scope.MethodScope'                          => 'outdated code',
 		'Squiz.Scope.MemberVarScope'                       => 'outdated code',
+		'WordPress.PHP.TypeCasts'                          => 'outdated code',
 
 		'WordPress.PHP.StrictComparisons'                  => 'potentially buggy code',
 		'WordPress.PHP.StrictInArray'                      => 'potentially buggy code',
 		'WordPress.DB.PreparedSQLPlaceholders'             => 'potentially buggy code',
 		'WordPress.PHP.PregQuoteDelimiter'                 => 'potentially buggy code',
 		'WordPress.PHP.NoSilencedErrors'                   => 'potentially buggy code',
+		'WordPress.NamingConventions.ValidPostTypeSlug'    => 'potentially buggy code',
 
 		'WordPress.CodeAnalysis.EmptyStatement'            => 'sloppy code',
 		'Generic.CodeAnalysis.EmptyStatement'              => 'sloppy code',

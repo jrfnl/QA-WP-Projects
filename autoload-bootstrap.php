@@ -11,10 +11,6 @@ if ( file_exists( __DIR__ . '/vendor/phpcompatibility/php-compatibility/PHPCSAli
 	require_once __DIR__ . '/vendor/phpcompatibility/php-compatibility/PHPCSAliases.php';
 }
 
-if ( file_exists( __DIR__ . '/vendor/wp-coding-standards/wpcs/WordPress/PHPCSAliases.php' ) ) {
-	require_once __DIR__ . '/vendor/wp-coding-standards/wpcs/WordPress/PHPCSAliases.php';
-}
-
 /**
  * Register an autoloader to be able to load the custom report based
  * on a Fully Qualified (Class)Name.
