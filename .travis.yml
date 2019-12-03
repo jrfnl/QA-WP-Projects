@@ -1,5 +1,3 @@
-sudo: false
-
 dist: trusty
 
 language: php
@@ -27,3 +25,5 @@ script:
     # Check the code-style consistency of the xml files.
     - diff -B ./WP-QA-Basic/ruleset.xml <(xmllint --format "./WP-QA-Basic/ruleset.xml")
     - diff -B ./WP-QA-Strict/ruleset.xml <(xmllint --format "./WP-QA-Strict/ruleset.xml")
+    # Check the code-style of the PHP code.
+    - vendor/bin/phpcs

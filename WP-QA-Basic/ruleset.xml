@@ -132,4 +132,7 @@
 	<!-- Verify that everything in the global namespace is prefixed. -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals"/>
 
+	<!-- Don't change runtime configuration. -->
+	<rule ref="WordPress.PHP.IniSet"/>
+
 </ruleset>
