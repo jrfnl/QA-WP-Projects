@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="My ruleset"
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
+
+	<description>My project ruleset</description>
+
+	<!--
+		This is a sample ruleset which can be used as a starting point for a PHPCS ruleset for a WordPress project.
+
+		Whether you are reviewing other people's code or working on your own code, it is useful to
+		have such a ruleset in place to:
+		- Document the settings used both for your future self as well for other contributors to the project.
+		- Ensure that everyone uses the same settings when reviewing the code.
+		- Make life easier as you no longer will have to type in a long range of command line parameters.
+
+		Before you use this ruleset, make sure to customize the following:
+		- The ruleset name and description above.
+		- The supported PHP versions as set in the value for `testVersion`.
+		  For information on how to set the value for `testVersion`, please see:
+		  https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-versions
+		- The minimum supported WP version `minimum_supported_wp_version`.
+		  For more information about this setting, see:
+		  https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#minimum-wp-version-to-check-for-usage-of-deprecated-functions-classes-and-function-parameters
+		- The `text-domain` used by the project.
+		  For more information about this setting, see:
+		  https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#internationalization-setting-your-text-domain
+		- The `prefixes` used by the project.
+		  For more information about this setting, see:
+		  https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#naming-conventions-prefix-everything-in-the-global-namespace
+	-->
+
+	<!--
+	#############################################################################
+	COMMAND LINE ARGUMENTS
+	https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml
+	#############################################################################
+	-->
+
+	<file>.</file>
+
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+
+	<!-- Only check PHP files. -->
+	<arg name="extensions" value="php"/>
+
+	<!-- Show progress, show the error codes for each message (source). -->
+	<arg value="ps"/>
+
+	<!-- Strip the filepaths down to the relevant bit. -->
+	<arg name="basepath" value="./"/>
+
+	<!-- Check up to 8 files simultaneously. -->
+	<arg name="parallel" value="8"/>
+
+
+	<!--
+	#############################################################################
+	SET THE RULES
+	#############################################################################
+	-->
+
+	<rule ref="WordPress"/>
+
+	<config name="testVersion" value="5.6-"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!--
+	#############################################################################
+	SNIFF SPECIFIC CONFIGURATION
+	#############################################################################
+	-->
+
+	<!-- Set the minimum supported WP version. This is used by several sniffs. -->
+	<config name="minimum_supported_wp_version" value="5.2"/>
+
+	<!-- Verify that all gettext calls use the correct text domain. -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="text-domain"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Verify that everything in the global namespace is prefixed with a plugin specific prefix. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<!-- Provide the prefixes to look for. -->
+			<property name="prefixes" type="array">
+				<element value="prefix"/>
+			</property>
+		</properties>
+	</rule>
+
+</ruleset>
