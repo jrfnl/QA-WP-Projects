@@ -3,12 +3,12 @@
 This is a sample ruleset which can be used as a starting point for a PHPCS ruleset for a WordPress project.
 
 Whether you are reviewing other people's code or working on your own code, it is useful to have such a ruleset in place to:
-- Document the settings used both for your future self as well for other contributors to the project.
+- Document the settings used both for your future self as well as for other contributors to the project.
 - Ensure that everyone uses the same settings when reviewing the code.
 - Make life easier as you no longer will have to type in a long range of command line parameters.
 
 Before you use this ruleset, make sure to customize the following:
-- The ruleset name and description above.
+- The ruleset name and description.
 - The supported PHP versions as set in the value for `testVersion`.
     For information on how to set the value for `testVersion`, please see the [PHPCompatibility readme](https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-versions).
 - The minimum supported WP version `minimum_supported_wp_version`.
