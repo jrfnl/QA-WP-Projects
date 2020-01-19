@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning](https://semver.org/) and [Keep a C
 
 ### Changed
 * Composer: Supported version of the [DealerDirect Composer PHPCS plugin] has been changed from `^0.5.0` to `^0.5 || ^0.6` to allow for the newly released version of the plugin.
+* The [PHP_CodeSniffer] dependency has been updated to version `3.5.3`.
+* The [PHPCompatibility] dependency has been updated to version `9.3.5`.
 
 
 ## [1.0] - 2019-12-09
