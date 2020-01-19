@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/) and [Keep a CHANGELOG](https://keepachangelog.com/).
 
+## [1.0.1] - 2020-01-19
+
+### Changed
+* Composer: Supported version of the [DealerDirect Composer PHPCS plugin] has been changed from `^0.5.0` to `^0.5 || ^0.6` to allow for the newly released version of the plugin.
+
+
 ## [1.0] - 2019-12-09
 
 ### Added
